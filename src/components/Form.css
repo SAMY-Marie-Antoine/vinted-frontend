@@ -1,0 +1,36 @@
+form {
+  border: 1px solid rgb(25, 132, 151);
+  border-radius: 20px;
+  height: 50%;
+  width: 300px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.button {
+  background-color: #29c6bb;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+input {
+  border-radius: 5px;
+  height: 30px;
+  width: 300px;
+}
+input::placeholder {
+  border-radius: 20px;
+  color: red;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+}
