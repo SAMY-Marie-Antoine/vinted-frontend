@@ -1,4 +1,4 @@
-form {
+/* form {
   border: 1px solid rgb(25, 132, 151);
   border-radius: 20px;
   height: 50%;
@@ -8,7 +8,7 @@ form {
   flex-direction: column;
   align-items: center;
   gap: 30px;
-}
+} */
 .button {
   background-color: #29c6bb;
   border: none;

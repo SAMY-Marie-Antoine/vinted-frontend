@@ -11,6 +11,7 @@ import Offer from "./pages/Offer";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Publish from "./components/Publish";
+import Payment from "./pages/Payment";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("vintedToken") || null);
@@ -45,6 +46,7 @@ function App() {
         <Route path="/signup" element={<Signup handleToken={handleToken} />} />
         <Route path="/login" element={<Login handleToken={handleToken} />} />
         <Route path="/publish" element={<Publish token={token} />} />
+        <Route path="/payment" element={<Payment token={token} />} />
       </Routes>
     </Router>
   );

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const Offer = ({}) => {
   const { id } = useParams();
@@ -52,6 +52,9 @@ const Offer = ({}) => {
           );
         })}
       </div>
+      <Link to="/payment" state={data}>
+        Acheter
+      </Link>
     </div>
   );
 };
