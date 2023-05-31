@@ -52,102 +52,104 @@ function Publish({ token }) {
   };
 
   return (
-    <div className="app">
-      <div>
-        <form onSubmit={handleSubmit}>
-          <h1>Vends ton article</h1>
-          <input
-            placeholder="Email"
-            type="email"
-            value={email}
-            onChange={(event) => {
-              setEmail(event.target.value);
-            }}
-          />
-          <input
-            placeholder="Username"
-            type="text"
-            value={username}
-            onChange={(event) => {
-              setUsername(event.target.value);
-            }}
-          />
-          <input
-            placeholder="title"
-            type="text"
-            value={title}
-            onChange={(event) => {
-              setTitle(event.target.value);
-            }}
-          />
-          <input
-            placeholder="description"
-            type="text"
-            value={description}
-            onChange={(event) => {
-              setDescription(event.target.value);
-            }}
-          />
-          <input
-            placeholder="price"
-            type="text"
-            value={price}
-            onChange={(event) => {
-              setPrice(event.target.value);
-            }}
-          />
-          <input
-            placeholder="etat"
-            type="text"
-            value={etat}
-            onChange={(event) => {
-              setEtat(event.target.value);
-            }}
-          />
-          <input
-            placeholder="city"
-            type="text"
-            value={city}
-            onChange={(event) => {
-              setCity(event.target.value);
-            }}
-          />
-          <input
-            placeholder="brand"
-            type="text"
-            value={brand}
-            onChange={(event) => {
-              setBrand(event.target.value);
-            }}
-          />
-          <input
-            placeholder="size"
-            type="text"
-            value={size}
-            onChange={(event) => {
-              setSize(event.target.value);
-            }}
-          />
-          <input
-            placeholder="color"
-            type="text"
-            value={color}
-            onChange={(event) => {
-              setColor(event.target.value);
-            }}
-          />
-          <input
-            placeholder="fichier..."
-            type="file"
-            onChange={(event) => {
-              console.log(event);
-              setPicture(event.target.files[0]);
-            }}
-          />
-          <input type="submit" value="Poster une offre" />
-        </form>
-        {imgFromCloudinary && <img src={imgFromCloudinary} alt="" />}
-      </div>
+    <div className="container">
+      <main className="form-center">
+        <div>
+          <form onSubmit={handleSubmit}>
+            <h1>Vends ton article</h1>
+            <input
+              placeholder="Email"
+              type="email"
+              value={email}
+              onChange={(event) => {
+                setEmail(event.target.value);
+              }}
+            />
+            <input
+              placeholder="Username"
+              type="text"
+              value={username}
+              onChange={(event) => {
+                setUsername(event.target.value);
+              }}
+            />
+            <input
+              placeholder="title"
+              type="text"
+              value={title}
+              onChange={(event) => {
+                setTitle(event.target.value);
+              }}
+            />
+            <input
+              placeholder="description"
+              type="text"
+              value={description}
+              onChange={(event) => {
+                setDescription(event.target.value);
+              }}
+            />
+            <input
+              placeholder="price"
+              type="text"
+              value={price}
+              onChange={(event) => {
+                setPrice(event.target.value);
+              }}
+            />
+            <input
+              placeholder="etat"
+              type="text"
+              value={etat}
+              onChange={(event) => {
+                setEtat(event.target.value);
+              }}
+            />
+            <input
+              placeholder="city"
+              type="text"
+              value={city}
+              onChange={(event) => {
+                setCity(event.target.value);
+              }}
+            />
+            <input
+              placeholder="brand"
+              type="text"
+              value={brand}
+              onChange={(event) => {
+                setBrand(event.target.value);
+              }}
+            />
+            <input
+              placeholder="size"
+              type="text"
+              value={size}
+              onChange={(event) => {
+                setSize(event.target.value);
+              }}
+            />
+            <input
+              placeholder="color"
+              type="text"
+              value={color}
+              onChange={(event) => {
+                setColor(event.target.value);
+              }}
+            />
+            <input
+              placeholder="fichier..."
+              type="file"
+              onChange={(event) => {
+                console.log(event);
+                setPicture(event.target.files[0]);
+              }}
+            />
+            <input type="submit" value="Poster une offre" />
+          </form>
+          {imgFromCloudinary && <img src={imgFromCloudinary} alt="" />}
+        </div>
+      </main>
     </div>
   );
 }

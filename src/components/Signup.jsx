@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import "../components/Form.css";
+//import "../components/Form.css";
 import { useState } from "react";
 import axios from "axios";
 
@@ -53,66 +53,72 @@ const Signup = ({ handleToken }) => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <label htmlFor="email">
-        Email :
-        <input
-          id="email"
-          type="email"
-          placeholder="samy@gmail.com"
-          value={email}
-          onChange={(event) => {
-            setEmail(event.target.value);
-          }}
-        />
-      </label>
-      {/* {!email && <p>Veuilez renseigner un email</p>*/}
-      <label htmlFor="username">
-        Name :
-        <input
-          id="username"
-          type="text"
-          placeholder="samy"
-          value={username}
-          onChange={(event) => {
-            setUsername(event.target.value);
-          }}
-        />
-      </label>
-      <label htmlFor="password">
-        Password :
-        <input
-          id="password"
-          type="password"
-          placeholder="azerty"
-          value={password}
-          onChange={(event) => {
-            setPassword(event.target.value);
-          }}
-        />
-      </label>
-      <label htmlFor="confirmPassword">
-        confirm Password :
-        <input
-          id="confirmPassword"
-          type="password"
-          placeholder="azerty"
-          value={confirmPassword}
-          onChange={(event) => {
-            setconfirmPassword(event.target.value);
-          }}
-        />
-      </label>
-      <button type="submit">Créer utilisateur</button>
-      {errorMessage && <p style={{ color: "red" }}>{errorMessage} </p>}
-      <Link to="/login">Tu as déjà un compte ? Connecte-toi !</Link>
-    </form>
+    <div className="container">
+      <main className="form-center">
+        <div>
+          <form
+            onSubmit={handleSubmit}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <label htmlFor="email">
+              Email :
+              <input
+                id="email"
+                type="email"
+                placeholder="samy@gmail.com"
+                value={email}
+                onChange={(event) => {
+                  setEmail(event.target.value);
+                }}
+              />
+            </label>
+            {/* {!email && <p>Veuilez renseigner un email</p>*/}
+            <label htmlFor="username">
+              Name :
+              <input
+                id="username"
+                type="text"
+                placeholder="samy"
+                value={username}
+                onChange={(event) => {
+                  setUsername(event.target.value);
+                }}
+              />
+            </label>
+            <label htmlFor="password">
+              Password :
+              <input
+                id="password"
+                type="password"
+                placeholder="azerty"
+                value={password}
+                onChange={(event) => {
+                  setPassword(event.target.value);
+                }}
+              />
+            </label>
+            <label htmlFor="confirmPassword">
+              confirm Password :
+              <input
+                id="confirmPassword"
+                type="password"
+                placeholder="azerty"
+                value={confirmPassword}
+                onChange={(event) => {
+                  setconfirmPassword(event.target.value);
+                }}
+              />
+            </label>
+            <button type="submit">Créer utilisateur</button>
+            {errorMessage && <p style={{ color: "red" }}>{errorMessage} </p>}
+            <Link to="/login">Tu as déjà un compte ? Connecte-toi !</Link>
+          </form>
+        </div>
+      </main>
+    </div>
   );
 };
 

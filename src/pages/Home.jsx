@@ -2,11 +2,14 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Details from "./Details";
 
-const Home = ({ search }) => {
+const Home = ({ search, priceMin, priceMax, tri }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
+      if ((search !== "" && priceMin !== "" && priceMax !== "") || tri !== "") {
+        search = `${search}&priceMin=${priceMin}&priceMax=${priceMax}&sort=price-${tri}`;
+      }
       try {
         const response = await axios.get(
           `https://site--backend-vinted--ybvpc4ksyyjp.code.run/offers?title=${search}`
@@ -18,13 +21,13 @@ const Home = ({ search }) => {
       }
     };
     fetchData();
-  }, [search]); //tableau de dependances pour le search; il refresh
+  }, [search, priceMin, tri]); //tableau de dependances pour le search; il refresh
 
   return isLoading ? (
     <p>Loading ...</p>
   ) : (
-    <div className="container">
-      <div className="article-container">
+    <main className="container">
+      <div>
         {data.map((offer) => {
           return (
             <div key={offer._id}>
@@ -33,7 +36,7 @@ const Home = ({ search }) => {
           );
         })}
       </div>
-    </div>
+    </main>
   );
 };
 

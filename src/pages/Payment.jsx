@@ -14,16 +14,20 @@ const Payment = ({ token }) => {
   //   console.log(product_title);
 
   return token ? (
-    <div>
-      <h1>Résumé de la commande</h1>
-      <p>Prix de la commande : {useLocation().state.product_price} €</p>
-      <p>Vous allez acheter : {useLocation().state.product_name}</p>
-      <Elements stripe={stripePromise}>
-        <CheckoutForm
-          product_name={useLocation().state.product_name}
-          product_price={useLocation().state.product_price}
-        />
-      </Elements>
+    <div className="container">
+      <main className="form-center">
+        <div>
+          <h1>Résumé de la commande</h1>
+          <p>Prix de la commande : {useLocation().state.product_price} €</p>
+          <p>Vous allez acheter : {useLocation().state.product_name}</p>
+          <Elements stripe={stripePromise}>
+            <CheckoutForm
+              product_name={useLocation().state.product_name}
+              product_price={useLocation().state.product_price}
+            />
+          </Elements>
+        </div>
+      </main>
     </div>
   ) : (
     <Navigate to="/login" />

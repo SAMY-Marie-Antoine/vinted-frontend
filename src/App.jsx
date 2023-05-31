@@ -1,6 +1,9 @@
 import { useState } from "react";
 import Cookies from "js-cookie";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+library.add(fas);
 import "./App.css";
 
 // Pages
@@ -15,8 +18,10 @@ import Payment from "./pages/Payment";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("vintedToken") || null);
-  // State correspondant à la recherche
   const [search, setSearch] = useState("");
+  const [priceMin, setpriceMin] = useState(0);
+  const [priceMax, setpriceMax] = useState(10000);
+  const [tri, setTri] = useState("asc");
 
   const handleToken = (token) => {
     if (token) {
@@ -37,10 +42,26 @@ function App() {
           handleToken={handleToken}
           search={search}
           setSearch={setSearch}
+          priceMin={priceMin}
+          setpriceMin={setpriceMin}
+          priceMax={priceMax}
+          setpriceMax={setpriceMax}
+          tri={tri}
+          setTri={setTri}
         />
       </header>
       <Routes>
-        <Route path="/" element={<Home search={search} />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              search={search}
+              priceMin={priceMin}
+              priceMax={priceMax}
+              tri={tri}
+            />
+          }
+        />
         <Route path="/details" element={<Details />} />
         <Route path="/offer/:id" element={<Offer />} />
         <Route path="/signup" element={<Signup handleToken={handleToken} />} />

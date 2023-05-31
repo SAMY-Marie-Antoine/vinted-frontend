@@ -11,24 +11,24 @@ const Details = ({ offer }) => {
 
   return (
     <Link to={`/offer/${offer._id}`}>
-      <button className="button">Cliquez sur l'offre !</button>
-      <div className="container">
-        <div className="article-container">
-          <div>
-            <h1>{product_name}</h1>
-            <p>{product_description}</p>
-            <img src={product_image.url} />
-          </div>
+      <div>
+        <div>
+          <h1>{product_name}</h1>
+          <p>{product_description}</p>
+          <img src={product_image.url} />
           <p>{product_price} €</p>
         </div>
-        {product_details.map((details, index) => {
-          <div key={index}></div>;
-          if (!details.MARQUE) {
-            return null;
-          } else {
-            details.MARQUE;
-          }
-        })}
+        <div>
+          {product_details.map((details, index) => {
+            <div key={index}></div>;
+            if (!details.MARQUE) {
+              return null;
+            } else {
+              details.MARQUE;
+            }
+          })}
+          <button className="button">Cliquez sur l'offre !</button>
+        </div>
       </div>
     </Link>
   );

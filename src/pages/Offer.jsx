@@ -26,36 +26,35 @@ const Offer = ({}) => {
   }, [id]); //tableau de dependances pour le search; il refresh
   // console.log("mon composant se render");
   return isLoading ? (
-    <></>
+    <p>Loading ...</p>
   ) : (
-    // <p>Loading ...</p>
-    <div className="container">
-      <div className="article-container">
-        <div>
-          {data.product_image.secure_url && (
-            <img src={data.product_image.secure_url} alt="" />
-          )}
-        </div>
+    <main className="container">
+      <div>
+        {data.product_image.secure_url && (
+          <img src={data.product_image.secure_url} alt="" />
+        )}
+      </div>
+      <div class="text-right">
+        <h1>{data.product_name}</h1>
         {data.product_details.map((detail, index) => {
           console.log("detail de l'offre =>", detail);
           return (
             <div key={index}>
               {/* J'affiche le nom dela clef  */}
-              <div className="article-container">
-                <span>{detail.MARQUE} </span>
-                <span>{detail.TAILLE} </span>
-                <span>{detail.ÉTAT} </span>
-                <span>{detail.COULEUR} </span>
-                <span>{detail.EMPLACEMENT} </span>
-              </div>
+              <span>{detail.MARQUE} </span>
+              <span>{detail.TAILLE} </span>
+              <span>{detail.ÉTAT} </span>
+              <span>{detail.COULEUR} </span>
+              <span>{detail.EMPLACEMENT} </span>
             </div>
           );
         })}
+
+        <Link to="/payment" state={data}>
+          <button className="button">Achetez</button>
+        </Link>
       </div>
-      <Link to="/payment" state={data}>
-        Acheter
-      </Link>
-    </div>
+    </main>
   );
 };
 

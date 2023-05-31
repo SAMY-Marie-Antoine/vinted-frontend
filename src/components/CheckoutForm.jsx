@@ -45,17 +45,23 @@ const CheckoutForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Formulaire de paiement</h1>
-      <CardElement />
-      {completed ? (
-        <p>Paiement validé</p>
-      ) : (
-        <button type="submit" disabled={isLoading}>
-          Pay
-        </button>
-      )}
-    </form>
+    <div className="container">
+      <main className="form-center">
+        <form onSubmit={handleSubmit}>
+          <h1>Formulaire de paiement</h1>
+
+          <CardElement />
+
+          {completed ? (
+            <p>Paiement validé</p>
+          ) : (
+            <button type="submit" disabled={isLoading}>
+              Pay
+            </button>
+          )}
+        </form>
+      </main>
+    </div>
   );
 };
 
